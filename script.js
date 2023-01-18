@@ -15,10 +15,13 @@ function divide(a, b){
 }
 
 function operate(num1, num2, operator){
+    num1
 
 }
 
 let display = document.querySelector(".display")
+let firstNum = 0;
+let secondNum = 0;
 
 const btn1 = document.querySelector("#one")
 btn1.addEventListener('click', () => {
@@ -59,25 +62,31 @@ btn9.addEventListener('click', () => {
 const btn10 = document.querySelector("#clear")
 btn10.addEventListener('click', () => {
     display.textContent = ""
+    firstNum = 0
+    secondNum = 0
 })
 const btn11 = document.querySelector("#equals")
 btn11.addEventListener('click', () => {
-    operate()
+    operate(firstNum, secondNum, )
 })
 const btn12 = document.querySelector("#plus")
 btn12.addEventListener('click', () => {
+    firstNum = display.textContent;
     display.textContent += " + "
 })
 const btn13 = document.querySelector("#minus")
 btn13.addEventListener('click', () => {
+    firstNum = display.textContent;
     display.textContent += " - "
 })
 const btn14 = document.querySelector("#divide")
 btn14.addEventListener('click', () => {
+    firstNum = display.textContent;
     display.textContent += " / "
 })
 const btn15 = document.querySelector("#multiply")
 btn15.addEventListener('click', () => {
+    firstNum = display.textContent;
     display.textContent += " * "
 })
  
