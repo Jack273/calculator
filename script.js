@@ -22,6 +22,7 @@ function operate(num1, num2, operator){
 let display = document.querySelector(".display")
 let firstNum = 0;
 let secondNum = 0;
+let operator = "";
 
 const btn1 = document.querySelector("#one")
 btn1.addEventListener('click', () => {
@@ -67,25 +68,31 @@ btn10.addEventListener('click', () => {
 })
 const btn11 = document.querySelector("#equals")
 btn11.addEventListener('click', () => {
-    operate(firstNum, secondNum, )
+    secondNum = display.textContent.split(" ")[2]
+    console.log(secondNum);
+    operate(firstNum, secondNum, operator)
 })
 const btn12 = document.querySelector("#plus")
 btn12.addEventListener('click', () => {
     firstNum = display.textContent;
+    operator = "+";
     display.textContent += " + "
 })
 const btn13 = document.querySelector("#minus")
 btn13.addEventListener('click', () => {
+    operator = "-";
     firstNum = display.textContent;
     display.textContent += " - "
 })
 const btn14 = document.querySelector("#divide")
 btn14.addEventListener('click', () => {
+    operator = "/";
     firstNum = display.textContent;
     display.textContent += " / "
 })
 const btn15 = document.querySelector("#multiply")
 btn15.addEventListener('click', () => {
+    operator = "*";
     firstNum = display.textContent;
     display.textContent += " * "
 })
