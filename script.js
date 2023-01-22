@@ -18,7 +18,7 @@ function calculate(){
     firstNum = parseInt(content[0])
     operator = content[1]
     secondNum = parseInt(content[2])
-    calc = operate(firstNum, secondNum, operator).toString()
+    calc = operate(firstNum, secondNum, operator).toFixed(2)
 
     if (content.length > 3){
         content.shift()
@@ -45,6 +45,10 @@ function operate(num1, num2, operator){
             return  num1 - num2;
             break;
         case "/":
+            if (num2 ===0){
+                display.textContent = "cant divide by 0 dummy"
+                break
+            }
             return num1 / num2
             break;
         case "*":
@@ -105,7 +109,10 @@ const btn9 = document.querySelector("#nine")
 btn9.addEventListener('click', () => {
     display.textContent += btn9.textContent
 })
-
+const btn19 = document.querySelector("#zero")
+btn19.addEventListener('click', () => {
+    display.textContent += btn19.textContent
+})
 /****************** Operator buttons **********************/
 
 const btn10 = document.querySelector("#clear")
