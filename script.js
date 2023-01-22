@@ -91,32 +91,28 @@ btn10.addEventListener('click', () => {
 })
 const btn11 = document.querySelector("#equals")
 btn11.addEventListener('click', () => {
+    firstNum = parseInt(display.textContent.split(" ")[0])
     secondNum = parseInt(display.textContent.split(" ")[2])
-    firstNum = parseInt(firstNum)
     display.textContent = operate(firstNum, secondNum, operator)
 })
 const btn12 = document.querySelector("#plus")
 btn12.addEventListener('click', () => {
-    firstNum = display.textContent;
     operator = "+";
     display.textContent += " + "
 })
 const btn13 = document.querySelector("#minus")
 btn13.addEventListener('click', () => {
     operator = "-";
-    firstNum = display.textContent;
     display.textContent += " - "
 })
 const btn14 = document.querySelector("#divide")
 btn14.addEventListener('click', () => {
     operator = "/";
-    firstNum = display.textContent;
     display.textContent += " / "
 })
 const btn15 = document.querySelector("#multiply")
 btn15.addEventListener('click', () => {
     operator = "*";
-    firstNum = display.textContent;
     display.textContent += " * "
 })
  
