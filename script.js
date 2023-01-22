@@ -14,13 +14,35 @@ function divide(a, b){
     return a/b;
 }
 
+function calculate(){
+    firstNum = parseInt(content[0])
+    operator = content[1]
+    secondNum = parseInt(content[2])
+    calc = operate(firstNum, secondNum, operator).toString()
+
+    if (content.length > 3){
+        content.shift()
+        content.shift()
+        content.shift()
+        content.unshift(calc)
+        display.textContent = content
+        calculate()
+
+    } 
+    else {
+        display.textContent = calc
+    }
+       
+   
+}
+
 function operate(num1, num2, operator){
     switch(operator){
         case "+":
             return num1 + num2;
             break;
         case "-":
-            return num1 - num2;
+            return  num1 - num2;
             break;
         case "/":
             return num1 / num2
@@ -29,7 +51,6 @@ function operate(num1, num2, operator){
             return num1 * num2
             break;
     }
-
 }
 
 function clear(){
@@ -42,6 +63,8 @@ let display = document.querySelector(".display")
 let firstNum = 0;
 let secondNum = 0;
 let operator = "";
+let content
+
 
 
 /*****************  Number buttons *****************s*/
@@ -91,33 +114,23 @@ btn10.addEventListener('click', () => {
 })
 const btn11 = document.querySelector("#equals")
 btn11.addEventListener('click', () => {
-    firstNum = parseInt(display.textContent.split(" ")[0])
-    operator = display.textContent.split(" ")[1]
-    secondNum = parseInt(display.textContent.split(" ")[2])
-    if (display.textContent.split(" ").length > 3){
-        display.textContent = operate(firstNum, secondNum, operator)
-
-    }
-    display.textContent = operate(firstNum, secondNum, operator)
+    content = display.textContent.split(" ")
+    calculate()
 })
 const btn12 = document.querySelector("#plus")
 btn12.addEventListener('click', () => {
-
     display.textContent += " + "
 })
 const btn13 = document.querySelector("#minus")
 btn13.addEventListener('click', () => {
-
     display.textContent += " - "
 })
 const btn14 = document.querySelector("#divide")
 btn14.addEventListener('click', () => {
-
     display.textContent += " / "
 })
 const btn15 = document.querySelector("#multiply")
 btn15.addEventListener('click', () => {
-
     display.textContent += " * "
 })
  
