@@ -15,14 +15,36 @@ function divide(a, b){
 }
 
 function operate(num1, num2, operator){
-    num1
+    switch(operator){
+        case "+":
+            return num1 + num2;
+            break;
+        case "-":
+            return num1 - num2;
+            break;
+        case "/":
+            return num1 / num2
+            break;
+        case "*":
+            return num1 * num2
+            break;
+    }
 
+}
+
+function clear(){
+    display.textContent = ""
+    firstNum = 0
+    secondNum = 0
 }
 
 let display = document.querySelector(".display")
 let firstNum = 0;
 let secondNum = 0;
 let operator = "";
+
+
+/*****************  Number buttons *****************s*/
 
 const btn1 = document.querySelector("#one")
 btn1.addEventListener('click', () => {
@@ -60,17 +82,18 @@ const btn9 = document.querySelector("#nine")
 btn9.addEventListener('click', () => {
     display.textContent += btn9.textContent
 })
+
+/****************** Operator buttons **********************/
+
 const btn10 = document.querySelector("#clear")
 btn10.addEventListener('click', () => {
-    display.textContent = ""
-    firstNum = 0
-    secondNum = 0
+    clear()
 })
 const btn11 = document.querySelector("#equals")
 btn11.addEventListener('click', () => {
-    secondNum = display.textContent.split(" ")[2]
-    console.log(secondNum);
-    operate(firstNum, secondNum, operator)
+    secondNum = parseInt(display.textContent.split(" ")[2])
+    firstNum = parseInt(firstNum)
+    display.textContent = operate(firstNum, secondNum, operator)
 })
 const btn12 = document.querySelector("#plus")
 btn12.addEventListener('click', () => {
